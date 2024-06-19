@@ -2,7 +2,8 @@
 """init package"""
 from flask import Flask
 from .extensions import db, bcrypt, migrate
-from app.scheduler import start_scheduler
+from .scheduler import init_scheduler
+from flask_apscheduler import APScheduler
 from .config import Config
 from .auth import auth
 from .routes import api
@@ -21,6 +22,6 @@ def create_app():
     app.register_blueprint(auth, url_prefix='/api/auth')
     app.register_blueprint(api, url_prefix='/api')
 
-    start_scheduler(app)
+    init_scheduler(app)
 
     return app
