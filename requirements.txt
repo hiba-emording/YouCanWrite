@@ -1,11 +1,12 @@
 Flask
-flask-sqlalchemy
-flask-bcrypt
-flask-jwt-extended
+Flask-SQLAlchemy
+Flask-Bcrypt
+Flask-JWT-Extended
 Flask-Migrate
 Flask-Login
 Flask-WTF
-psycopg2-binary
+flask_apscheduler
 APScheduler
-openai
+psycopg2-binary
 gunicorn
+google-generativeai
