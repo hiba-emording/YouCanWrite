@@ -90,7 +90,6 @@ class Like(db.Model):
         }
 
 
-
 class Challenge(db.Model):
     """Define Challenge class"""
     id = db.Column(db.Integer, primary_key=True)
@@ -100,12 +99,11 @@ class Challenge(db.Model):
     responses = db.relationship('ChallengeResponse', backref='challenge', lazy=True)
 
     def to_dict(self):
-        created_at_formatted = self.created_at.isoformat() if self.created_at else None
         return {
             'id': self.id,
             'title': self.title,
             'description': self.description,
-            'created_at': created_at_formattedi,
+            'created_at': self.created_at.isoformat(),
             'responses': [response.to_dict() for response in self.responses]
         }
 
@@ -135,9 +133,8 @@ class Tip(db.Model):
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
 
     def to_dict(self):
-        created_at_formatted = self.created_at.isoformat() if self.created_at else None
         return {
             'id': self.id,
             'tip': self.tip,
-            'created_at': created_at_formatted
+            'created_at': self.created_at.isoformat()
         }

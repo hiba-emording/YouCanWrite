@@ -115,7 +115,6 @@ def remove_like(post_id):
 @api.route('/challenges', methods=['GET'])
 def get_challenges():
     challenges = Challenge.query.all()
-    filtered_challenges = [challenge.to_dict() for challenge in challenges if challenge]
     return jsonify([challenge.to_dict() for challenge in challenges]), 200
 
 
@@ -174,7 +173,6 @@ def delete_challenge_response(challenge_id, response_id):
 @api.route('/tips', methods=['GET'])
 def get_tips():
     tips = Tip.query.all()
-    filtered_tips = [tip.to_dict() for tip in tips if tip]
     return jsonify([tip.to_dict() for tip in tips]), 200
 
 

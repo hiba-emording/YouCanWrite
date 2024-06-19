@@ -3,5 +3,5 @@
 
 
 class Config:
-    SQLALCHEMY_DATABASE_URI = 'postgresql://admin:pwd@localhost/youcanwritedb'
+    SQLALCHEMY_DATABASE_URI = 'postgresql://admin:itsme@localhost/youcanwritedb'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
