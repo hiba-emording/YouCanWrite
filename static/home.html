@@ -1,0 +1,98 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - YouCanWrite</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-gray-100 flex flex-col min-h-screen">
+    <nav class="bg-white shadow-lg py-6 px-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="home.html" class="text-xl font-bold">You Can Write</a>
+            <div class="flex space-x-4">
+                <a href="home.html" class="text-gray-700 hover:text-blue-500">Home</a>
+                <a href="dashboard.html" class="text-gray-700 hover:text-blue-500">Writing Zone</a>
+                <a href="profile.html" class="text-gray-700 hover:text-blue-500">Profile</a>
+                <a href="index.html" class="text-gray-700 hover:text-blue-500">Logout</a>
+            </div>
+        </div>
+    </nav>
+    <main class="container mx-auto p-4 flex-grow flex">
+        <div class="flex flex-wrap">
+            <div class="w-full md:w-1/4 pr-4">
+                <section class="bg-white shadow-lg p-4 mb-4">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4">Ready for daily challenge?</h3>
+                        <button class="bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-900 mt-2" onclick="window.location.href='challenge.html';">Let's go</button>
+                    </div>
+                </section>
+                <div id="Dailytip" class="bg-white shadow-md rounded-md p-4 mb-4">
+                    <!-- Dynamic Tip will be inserted here -->
+                    <h3 class="text-2xl font-bold mb-4">Today's Tip!</h3>
+                    <p id="tipContent" class="text-gray-700">Loading daily tip...</p>
+                    <button class="bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-900 mt-2" onclick="window.location.href='tip.html';">See more</button>
+                </div>
+            <div class="w-full md:w-3/4">
+            </div>
+        </div>
+        <div class="w-3/4">
+            <section class="mb-8">
+                <h2 class="text-2xl font-bold mb-4">Recently Released</h2>
+                <div class="flex flex-wrap justify-between">
+                    <div class="mb-4 w-1/3 px-2">
+                        <a href="post1.html" class="block text-center">
+                            <img src="images/1.jpg" alt="Post Title 1" class="mb-2 mx-auto" style="width: 100%; height: auto;">
+                            <span class="text-blue-500 hover:underline">POST TITLE 1</span>
+                        </a>
+                    </div>
+                    <div class="mb-4 w-1/3 px-2">
+                        <a href="post2.html" class="block text-center">
+                            <img src="images/1.jpg" alt="Post Title 2" class="mb-2 mx-auto" style="width: 100%; height: auto;">
+                            <span class="text-blue-500 hover:underline">POST TITLE 2</span>
+                        </a>
+                    </div>
+                    <div class="mb-4 w-1/3 px-2">
+                        <a href="post3.html" class="block text-center">
+                            <img src="images/1.jpg" alt="Post Title 3" class="mb-2 mx-auto" style="width: 100%; height: auto;">
+                            <span class="text-blue-500 hover:underline">POST TITLE 3</span>
+                        </a>
+                    </div>
+                </div>
+                <button class="bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-900">See more</button>
+            </section>
+            <section class="mb-8">
+                <h2 class="text-2xl font-bold mb-4">Most Popular</h2>
+                <div class="flex flex-wrap justify-between">
+                    <div class="mb-4 w-1/3 px-2">
+                        <a href="post1.html" class="block text-center">
+                            <img src="images/1.jpg" alt="Post Title 1" class="mb-2 mx-auto" style="width: 100%; height: auto;">
+                            <span class="text-blue-500 hover:underline">POST TITLE 1</span>
+                        </a>
+                    </div>
+                    <div class="mb-4 w-1/3 px-2">
+                        <a href="post2.html" class="block text-center">
+                            <img src="images/1.jpg" alt="Post Title 2" class="mb-2 mx-auto" style="width: 100%; height: auto;">
+                            <span class="text-blue-500 hover:underline">POST TITLE 2</span>
+                        </a>
+                    </div>
+                    <div class="mb-4 w-1/3 px-2">
+                        <a href="post3.html" class="block text-center">
+                            <img src="images/1.jpg" alt="Post Title 3" class="mb-2 mx-auto" style="width: 100%; height: auto;">
+                            <span class="text-blue-500 hover:underline">POST TITLE 3</span>
+                        </a>
+                    </div>
+                </div>
+                <button class="bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-900">See more</button>
+            </section>
+        </div>
+            </div>
+        </div>
+    </main>
+    <footer class="bg-gray-800 text-white text-center py-4 mt-auto w-full">
+        &copy; 2024 You Can Write. All rights reserved.<br>
+        Unauthorized copying or distribution of content is prohibited.
+    </footer>
+    <script src="js/main.js"></script>
+</body>
+</html>

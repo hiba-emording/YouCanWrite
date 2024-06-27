@@ -1,0 +1,42 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - YouCanWrite</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-gray-100 flex flex-col min-h-screen">
+    <nav class="bg-white shadow-lg py-6 px-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="home.html" class="text-xl font-bold">You Can Write</a>
+            <div class="flex space-x-4">
+                <a href="home.html" class="text-gray-700 hover:text-blue-500">Home</a>
+                <a href="dashboard.html" class="text-gray-700 hover:text-blue-500">Writing Zone</a>
+                <a href="profile.html" class="text-gray-700 hover:text-blue-500">Profile</a>
+                <a href="index.html" class="text-gray-700 hover:text-blue-500">Logout</a>
+            </div>
+        </div>
+    </nav>
+    <main class="container mx-auto p-4 flex-grow flex">
+        <div id="dailyChallenge" class="bg-white p-6 rounded-lg shadow-lg mb-6">
+            <h3 class="text-2xl font-bold mb-4">Today's Challenge</h3>
+            <p id="challengeContent" class="text-gray-700">Loading daily challenge...</p>
+            <form id="submitResponseForm" class="mt-4">
+                <textarea id="responseText" class="border-2 w-full p-2" rows="4" placeholder="Your response..."></textarea>
+                <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-2">Submit Response</button>
+            </form>
+            <div id="responsesSection" class="mt-8">
+                <h4 class="text-xl font-bold mb-4">Responses</h4>
+                <ul id="responsesList" class="list-disc pl-5">
+                </ul>
+            </div>
+        </div>
+    </main>
+    <footer class="bg-gray-800 text-white text-center py-4 mt-auto w-full">
+        &copy; 2024 You Can Write. All rights reserved.<br>
+        Unauthorized copying or distribution of content is prohibited.
+    </footer>
+    <script src="js/main.js"></script>
+</body>
+</html>

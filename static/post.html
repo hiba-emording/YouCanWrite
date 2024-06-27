@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - YouCanWrite</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-gray-100 flex flex-col min-h-screen">
+    <nav class="bg-white shadow-lg py-6 px-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="home.html" class="text-xl font-bold">You Can Write</a>
+            <div class="flex space-x-4">
+                <a href="home.html" class="text-gray-700 hover:text-blue-500">Home</a>
+                <a href="dashboard.html" class="text-gray-700 hover:text-blue-500">Writing Zone</a>
+                <a href="profile.html" class="text-gray-700 hover:text-blue-500">Profile</a>
+                <a href="index.html" class="text-gray-700 hover:text-blue-500">Logout</a>
+            </div>
+        </div>
+    </nav>
+    <main class="container mx-auto p-4 flex-grow flex">    
+        <div class="bg-white p-6 rounded-lg shadow-lg">
+            <img id="postImg" src="" alt="Post Image" class="w-full h-64 object-cover rounded mb-4">
+            <h2 class="text-3xl font-bold mb-4" id="postTitle">Post Title</h2>
+            <p class="text-lg text-gray-700 mb-4" id="postContent">Post content goes here...</p>
+            <div class="flex justify-between items-center mb-4">
+                <div>
+		    <button id="likeButton" class="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-700">
+                    <i id="likeIcon" class="fas fa-thumbs-up"></i> <span id="likeText">Like</span>
+                </button>
+                </div>
+                <div>
+                    <button class="bg-green-500 text-white py-2 px-4 rounded hover:bg-green-700 mr-2" onclick="editPost()">Edit</button>
+                    <button class="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-700" onclick="deletePost()">Delete</button>
+                </div>
+            </div>
+            <h3 class="text-2xl font-bold mb-4">Comments</h3>
+            <div id="comments" class="mb-4">
+            </div>
+            <div class="bg-gray-200 p-4 rounded-lg mb-4">
+                <textarea id="commentInput" class="w-full p-2 border border-gray-300 rounded-lg" rows="3" placeholder="Add a comment..."></textarea>
+                <button id="submitComment" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700 mt-2">Submit</button>
+            </div>
+        </div>
+    </main>
+    <footer class="bg-gray-800 text-white text-center py-4 mt-auto w-full">
+        &copy; 2024 You Can Write. All rights reserved.<br>
+        Unauthorized copying or distribution of content is prohibited.
+    </footer>
+    <script src="js/writingzone.js"></script>
+</body>
+</html>
+

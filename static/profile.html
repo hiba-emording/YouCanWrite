@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - YouCanWrite</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+    <body class="bg-gray-100 flex flex-col min-h-screen">
+    <nav class="bg-white shadow-lg py-6 px-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="home.html" class="text-xl font-bold">You Can Write</a>
+            <div class="flex space-x-4">
+                <a href="home.html" class="text-gray-700 hover:text-blue-500">Home</a>
+                <a href="dashboard.html" class="text-gray-700 hover:text-blue-500">Writing Zone</a>
+                <a href="profile.html" class="text-gray-700 hover:text-blue-500">Profile</a>
+                <a href="index.html" class="text-gray-700 hover:text-blue-500">Logout</a>
+            </div>
+        </div>
+    </nav>
+    <main class="container mx-auto p-4 flex-grow flex">
+        <section id="profile">
+            <h2 class="text-3xl font-bold mb-6">User Profile</h2>
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+                <img id="profilePic" src="" alt="Profile Picture" class="w-32 h-32 rounded-full mb-4">
+                <h3 class="text-2xl font-bold mb-4" id="username">Username</h3>
+                <p class="text-lg text-gray-700 mb-4" id="email">Email</p>
+                <p class="text-lg text-gray-700 mb-4" id="bio">Bio</p>
+                <h4 class="text-xl font-bold mb-4">Posts</h4>
+                <div id="posts">
+                </div>
+                <button id="editProfileButton" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700 mt-4" onclick="showEditProfile()">Edit Profile</button>
+            </div>
+        </section>
+        <section id="editProfile" class="hidden">
+            <h2 class="text-3xl font-bold mb-6">Edit Profile</h2>
+            <div class="max-w-md mx-auto bg-white p-6 rounded-lg shadow-lg">
+                <form id="profileEditForm">
+                    <div class="mb-4">
+                        <label class="block text-gray-700">Username</label>
+                        <input type="text" name="username" class="w-full p-2 border border-gray-300 rounded-lg" required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700">Email</label>
+                        <input type="email" name="email" class="w-full p-2 border border-gray-300 rounded-lg" required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700">Bio</label>
+                        <textarea name="bio" class="w-full p-2 border border-gray-300 rounded-lg"></textarea>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700">Profile Picture URL</label>
+                        <input type="text" name="profile_pic" class="w-full p-2 border border-gray-300 rounded-lg">
+                    </div>
+                    <button type="submit" class="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-700">Save Changes</button>
+                </form>
+                <button id="cancelEditButton" class="w-full bg-gray-500 text-white py-2 rounded-lg hover:bg-gray-700 mt-4" onclick="cancelEditProfile()">Cancel</button>
+            </div>
+        </section>
+    </main>
+    <footer class="bg-gray-800 text-white text-center py-4 mt-auto w-full">
+        &copy; 2024 You Can Write. All rights reserved.<br>
+        Unauthorized copying or distribution of content is prohibited.
+    </footer>
+    <script src="js/profile.js"></script>
+</body>
+</html>

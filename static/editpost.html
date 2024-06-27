@@ -1,0 +1,47 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - YouCanWrite</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-gray-100 flex flex-col min-h-screen">
+    <nav class="bg-white shadow-lg py-6 px-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="home.html" class="text-xl font-bold">You Can Write</a>
+            <div class="flex space-x-4">
+                <a href="home.html" class="text-gray-700 hover:text-blue-500">Home</a>
+                <a href="dashboard.html" class="text-gray-700 hover:text-blue-500">Writing Zone</a>
+                <a href="viewprofile.html" class="text-gray-700 hover:text-blue-500">Profile</a>
+                <a href="index.html" class="text-gray-700 hover:text-blue-500">Logout</a>
+            </div>
+        </div>
+    </nav>
+    <main class="container mx-auto py-4 flex-grow">
+	    <h2 class="text-3xl font-bold mb-6">Edit Post</h2>
+        <div class="max-w-md mx-auto bg-white p-6 rounded-lg shadow-lg">
+            <form id="postEditForm">
+                <div class="mb-4">
+                    <label class="block text-gray-700">Post Title</label>
+                    <input type="text" id="postTitleInput" class="w-full p-2 border border-gray-300 rounded-lg" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700">Post Image URL</label>
+                    <input type="text" id="postImgInput" class="w-full p-2 border border-gray-300 rounded-lg">
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700">Content</label>
+                    <textarea id="postContentInput" class="w-full p-2 border border-gray-300 rounded-lg" required></textarea>
+                </div>
+                <button type="submit" class="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-700">Save Changes</button>
+            </form>
+        </div>
+    </main>
+    <footer class="bg-gray-800 text-white text-center py-4 mt-auto w-full">
+        &copy; 2024 You Can Write. All rights reserved.<br>
+        Unauthorized copying or distribution of content is prohibited.
+    </footer>
+    <script src="js/main.js"></script>
+</body>
+</html>
