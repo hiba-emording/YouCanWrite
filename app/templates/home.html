@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - YouCanWrite</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Julius+Sans+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='images/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='images/favicon-16x16.png') }}">
+</head>
+<body class="bg-gray-100" style="display: flex; flex-direction: column; min-height: 100vh;">
+    <div class="flex flex-col flex-grow">
+        <nav class="shadow-lg py-1 px-4">
+            <div class="container mx-auto flex justify-between items-center">
+                <a href="{{ url_for('api.home') }}" class="text-2xl font-bold flex items-center">
+                    <img src="{{ url_for('static', filename='images/LOGO.PNG') }}" alt="Logo" class="h-16 w-16">
+                    <div class="flex flex-col">
+                    <h1 class="text-2xl font-bold">YouCanWrite</h1>
+                    <p class="text-sm">FROM SPARK TO MASTERPIECE</p>
+                </div>
+                </a>
+                <div class="menu">
+                    <a href="{{ url_for('api.home') }}" class="mx-2">Home</a>
+                    <a href="{{ url_for('api.dashboard') }}" class="mx-2">WritingZone</a>
+                    <a href="{{ url_for('api.profile') }}" class="mx-2">Profile</a>
+                    <a href="{{ url_for('api.logout') }}" class="mx-2">Logout</a>
+                </div>
+            </div>
+        </nav>
+    <div class="container mx-auto mt-10 mb-4 flex" style="flex: 1;">
+        <div class="w-1/4 bg-white p-4 rounded-lg shadow-md h-full">
+            <h2 class="text-2xl font-bold mb-4">Writing Tip</h2>
+            <p class="text-left text-gray-700 mb-6">.{{ daily_tip.tip }}</p>
+            <a href="{{ url_for('api.get_tips') }}" class="text-purple-700 hover:underline" style="font-weight: 600; text-decoration: none; color: #6f42c1; background-color: #f5f5f5; padding: 8px 12px; border-radius: 4px; display: inline-block; transition: background-color 0.2s ease-in-out;">Explore more</a>
+        </div>
+        <div class="w-3/4 ml-4">         
+            <div class="bg-white p-4 rounded-lg shadow-md mb-4 flex items-center justify-between">
+                <h2 class="text-2xl font-bold mr-4">Ready for daily challenge?</h2>
+                <a href="{{ url_for('api.dashboard') }}" class="px-4 py-2 bg-purple-700 text-white rounded-lg hover:bg-purple-800">Let's go!</a>
+            </div>
+            <div class="mt-4 mb-2 flex justify-end">
+                <a href="{{ url_for('api.all_posts') }}" class="px-4 py-2 bg-purple-700 text-white rounded-lg hover:bg-purple-800">View All Posts</a>
+            </div>   
+            <div class="grid grid-cols-2 gap-4">
+                <div class="bg-white p-4 rounded-lg shadow-md" id="recentPostsContainer">
+                    <h2 class="text-2xl font-bold mb-2 ">Recently Added</h2>
+                    {% for post in recent_posts %}
+                <div class="bg-white p-4 rounded-lg shadow-lg mb-4">
+                    <a href="{{ url_for('api.get_post', post_id=post.id) }}">
+                        <img src="{{ post.image_url if post.image_url else url_for('static', filename='images/post_img.png') }}" alt="{{ post.title }}" class="w-full h-48 object-cover rounded mb-4">
+                        <h3 class="text-xl font-bold">{{ post.title }}</h3>
+                    </a>
+                </div>
+                {% endfor %}
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow-md" id="popularPostsContainer">
+                    <h2 class="text-2xl font-bold mb-2">Most Populer</h2>
+                    {% for post in popular_posts %}
+                    <div class="bg-white p-4 rounded-lg shadow-lg mb-4">
+                        <a href="{{ url_for('api.get_post', post_id=post.id) }}">
+                            <img src="{{ post.image_url if post.image_url else url_for('static', filename='images/post_img.png') }}" alt="{{ post.title }}" class="w-full h-48 object-cover rounded mb-4">
+                            <h3 class="text-xl font-bold">{{ post.title }}</h3>
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="py-4 mt-auto w-full">
+        &copy; 2024 YouCanWrite. All rights reserved..
+    </footer>
+</body>
+</html>
+
