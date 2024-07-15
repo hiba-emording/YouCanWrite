@@ -1,5 +1,3 @@
-
-
 // Function to handle post edit visibility
 function toggleEdit(show) {
     const postDisplay = document.getElementById('postDisplay');
@@ -14,13 +12,13 @@ function toggleEdit(show) {
 }
 
 
-
 // Function to handle updating post image preview
 function updatePostImage(url) {
     const postImage = document.getElementById('postImage');
     postImage.src = url;
     postImage.style.display = 'block';
 }
+
 
 // Function to handle post deletion
 function deletePost(postId) {
@@ -60,6 +58,7 @@ function submitComment(postId) {
     })
     .catch(error => console.error('Error:', error));
 }
+
 
 // Function to handle editing a comment
 function toggleCommentEdit(commentId, show) {
@@ -109,7 +108,6 @@ function updateComment(commentId) {
 }
 
 
-
 // Function to handle comment deletion
 function deleteComment(commentId, postId) {
     if (confirm('Are you sure you want to delete this comment?')) {
@@ -131,6 +129,7 @@ function deleteComment(commentId, postId) {
         .catch(error => console.error('Error:', error));
     }
 }
+
 
 document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('.save-comment').forEach(button => {
@@ -175,15 +174,15 @@ document.addEventListener('DOMContentLoaded', function () {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
-                        'X-CSRFToken': '{{ csrf_token() }}'  // Include CSRF token if needed
+                        'X-CSRFToken': '{{ csrf_token() }}'
                     }
                 })
                 .then(response => response.json())
                 .then(data => {
                     if (data.liked) {
-                        this.classList.add('liked');  // Optionally add a class to show the button as liked
+                        this.classList.add('liked');
                     } else {
-                        this.classList.remove('liked');  // Optionally remove the class to show the button as unliked
+                        this.classList.remove('liked');
                     }
                     this.querySelector('.like-count').textContent = data.likes_count;
 

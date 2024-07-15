@@ -10,6 +10,11 @@ from .config import Config
 from .routes import api
 
 def create_app():
+    """
+    Create and configure the Flask application.
+
+    :return: Configured Flask application instance.
+    """
     app = Flask(__name__)
     app.config.from_object('app.config.Config')
 

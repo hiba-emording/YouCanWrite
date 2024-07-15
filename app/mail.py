@@ -1,12 +1,23 @@
+#!/usr/bin/python3
+"""Utility functions for sending emails"""
 from mailjet_rest import Client
 import os
+
 
 API_KEY = os.environ.get('MAILJET_API_KEY')
 API_SECRET = os.environ.get('MAILJET_API_SECRET')
 
 mailjet = Client(auth=(API_KEY, API_SECRET), version='v3.1')
 
+
 def send_email(to, subject, text, html):
+    """
+    Send an email.
+    
+    :param to: Recipient email address.
+    :param subject: Email subject.
+    :param template: Email body content.
+    """
     data = {
       'Messages': [
         {
