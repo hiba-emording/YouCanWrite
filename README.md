@@ -8,12 +8,15 @@ At its core, YouCanWrite aims to address common challenges faced by writers, suc
 
 **This project combines a robust backend with a user-friendly frontend to deliver a seamless writing experience:**
 Backend: The application is powered by Flask, a lightweight WSGI web application framework in Python. Flask is used to handle the application's routing, request processing, and integration with the database.
+
 Database: We use PostgreSQL for robust and scalable data storage. This relational database system is known for its reliability and performance.
+
 Frontend: The user interface is built using HTML, CSS, and JavaScript, with Tailwind CSS providing a utility-first approach to styling. This ensures a responsive and visually appealing design.
-Daily Writing Tips and Challenges: Gemini is utilized for generating daily writing tips and challenge prompts, offering users fresh and engaging content every day.
+
+Gemini API: Gemini is utilized for generating daily writing tips and challenge prompts, offering users fresh and engaging content every day.
+
 
 - **Landing Page:** [Landing Page URL](https://hiba-emording.github.io/youcanwrite-landing/)
-- **Blog Article:** [Blog Article](https://)
 
 ## Installation
 
