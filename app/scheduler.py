@@ -9,7 +9,7 @@ import google.generativeai as genai
 from flask_apscheduler import APScheduler
 import os
 
-genai.configure(api_key='AIzaSyDxax_5OB-GYTJ2cCsUUWrIFtBP1ILspY8')
+genai.configure(api_key=os.environ.get('GENAI_API_KEY'))
 generation_config = {
     "temperature": 1,
     "top_p": 0.95,
