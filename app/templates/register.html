@@ -10,6 +10,9 @@
     <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='images/favicon-32x32.png') }}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='images/favicon-16x16.png') }}">
 </head>
+{% extends "base.html" %}
+{% block title %}Register{% endblock %}
+{% block content %}
 <body class="bg-gray-100" style="display: flex; flex-direction: column; min-height: 100vh;">
     <div class="flex flex-col flex-grow">
         <nav class="shadow-lg py-1 px-4">
@@ -52,5 +55,6 @@
             &copy; 2024 YouCanWrite. All rights reserved.
         </footer>
     </div>
+    {% endblock %}
 </body>
 </html>
