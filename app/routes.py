@@ -37,10 +37,9 @@ def show_register_form():
         db.session.add(new_user)
         db.session.commit()
         send_confirmation_email(new_user.email)
-        flash('A confirmation email has been sent via email.', 'success')
+        flash('A confirmation email has been sent via email. Please check your inbox and spam folder.', 'info')
         return redirect(url_for('api.show_login_form'))
     return render_template('register.html')
-
 
 @api.route('/confirm/<token>')
 def confirm_email(token):
@@ -52,9 +51,12 @@ def confirm_email(token):
         return redirect(url_for('api.show_login_form'))
 
     user = User.query.filter_by(email=email).first_or_404()
-    user.email_confirmed = True
-    db.session.commit()
-    flash('You have confirmed your account. Thanks!', 'success')
+    if user.email_confirmed:
+        flash('Account already confirmed. Please login.', 'success')
+    else:
+        user.email_confirmed = True
+        db.session.commit()
+        flash('You have confirmed your account. Thanks!', 'success')
     return redirect(url_for('api.show_login_form'))
 
 
@@ -208,6 +210,7 @@ def delete_post(post_id):
 
     db.session.delete(post)
     db.session.commit()
+    flash('Post deleted successfully.', 'success')
     return jsonify({'message': 'Post deleted'}), 200
 
 
@@ -257,6 +260,7 @@ def create_comment(post_id):
     comment = Comment(content=content, user_id=user_id, post_id=post_id)
     db.session.add(comment)
     db.session.commit()
+    flash('Comment updated successfully.', 'success')
 
     user = User.query.get(user_id)
 
@@ -274,6 +278,7 @@ def update_comment(comment_id):
     if comment:
         comment.content = content
         db.session.commit()
+        flash('Commment updated successfully.', 'success')
         return jsonify({'success': True, 'content': comment.content})
     else:
         return jsonify({'success': False, 'message': 'Comment not found'}), 404
@@ -290,6 +295,7 @@ def delete_comment(comment_id):
     post_id = comment.post_id
     db.session.delete(comment)
     db.session.commit()
+    flash('Comment deleted successfully.', 'success')
     return jsonify({'message': 'Comment deleted successfully', 'post_id': post_id})
 
 

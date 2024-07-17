@@ -46,5 +46,8 @@ def send_confirmation_email(to_email):
         {}
         Thanks
         """.format(confirm_url)
-    send_email(to_email, 'Confirm Your Email Address', text, html)
+
+    is_sent = send_email(to_email, 'Confirm Your Email Address', text, html)
+    if not is_sent:
+        current_app.logger.error('Failed to send confirmation email.')
 
