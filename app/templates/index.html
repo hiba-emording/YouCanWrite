@@ -33,21 +33,21 @@
             <div class="flex justify-center mb-2">
                 <a href="{{ url_for('api.show_login_form') }}" class="bg-purple-500 text-white py-2 px-4 rounded hover:bg-purple-700 inline-block">Start Writing</a>
             </div>
-            <div class="image-container bg-gray-100 p-4 rounded-lg shadow-md flex flex-wrap justify-center gap-4 mb-2">
-                <div class="image-box" onmouseover="showDescription('desc1')" onmouseout="hideDescription('desc1')">
+            <div class="feature-container">
+                <div class="feature" onmouseover="showDescription('desc1')" onmouseout="hideDescription('desc1')">
                     <img src="{{ url_for('static', filename='images/Challenge.png') }}" alt="Daily Writing Challenges"> 
-                    <div id="desc1" class="description">Take on daily writing challenges to improve your skills.</div>
+                    <div id="desc1" class="feature-description">Take on daily writing challenges to improve your skills.</div>
                 </div>
-                <div class="image-box" onmouseover="showDescription('desc2')" onmouseout="hideDescription('desc2')">
+                <div class="feature" onmouseover="showDescription('desc2')" onmouseout="hideDescription('desc2')">
                     <img src="{{ url_for('static', filename='images/Feedback.png') }}" alt="Community Interaction"> 
-                    <div id="desc2" class="description">Engage with a community of writers and share feedback.</div>
+                    <div id="desc2" class="feature-description">Engage with a community of writers and share feedback.</div>
                 </div>
-                <div class="image-box" onmouseover="showDescription('desc3')" onmouseout="hideDescription('desc3')">
+                <div class="feature" onmouseover="showDescription('desc3')" onmouseout="hideDescription('desc3')">
                     <img src="{{ url_for('static', filename='images/Tips.png') }}" alt="Writing Tips"> 
-                    <div id="desc3" class="description">Get daily tips to enhance your writing prowess.</div>
-                </div>
+                    <div id="desc3" class="feature-description">Get daily tips to enhance your writing prowess.</div>
                 </div>
             </div>
+            <div class="typing-animation"></div>
         </main>
     </div>
     <footer class="text-center py-4">
