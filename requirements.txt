@@ -6,6 +6,8 @@ Flask-Migrate
 Flask-Login
 Flask-WTF
 Flask-Mail
+flask-session
+flask-ckeditor
 flask_apscheduler
 APScheduler
 psycopg2-binary
