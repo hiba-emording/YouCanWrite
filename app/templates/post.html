@@ -44,7 +44,7 @@
         <div id="postDisplay" class="bg-white p-6 rounded-lg shadow-lg max-w-full">
             <img id="postImg" src="{{ post.image_url if post.image_url else url_for('static', filename='images/post_img.png') }}" alt="{{ post.title }}" class="w-full h-64 object-cover rounded mb-4" style="width: 1440px; height: 480px; object-fit: cover;">
             <h2 class="text-3xl font-bold mb-2">{{ post.title }}</h2>
-            <p class="text-left text-gray-600 mb-4">Author: <a href="{{ url_for('api.view_user_profile', username=post.user.username) }}" id="postAuthorName" class="text-blue-500 hover:text-blue-600">{{ post.user.username }}</a></p>
+            <p class="text-left text-gray-600 mb-4">Author: <a href="{{ url_for('api.view_user_profile', username=post.author.username) }}" id="postAuthorName" class="text-blue-500 hover:text-blue-600">{{ post.author.username }}</a></p>
             <div class="text-left text-lg text-black mb-4 post-container">{{ post.content | safe }}</div>
             <div class="flex justify-between items-center mb-4">
                 <div class="flex gap-2" data-post-id="{{ post.id }}">
@@ -65,7 +65,7 @@
                         </ul>
                     </p>
                 </div>                     
-                {% if current_user.id == post.user.id %}
+                {% if current_user.id == post.author.id %}
                 <div>
                     <button class="bg-purple-500 text-white py-2 px-4 rounded hover:bg-purple-700 mr-2" onclick="toggleEdit(true)">Edit</button>
                     <button class="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-700" onclick="deletePost('{{ post.id }}')">Delete</button>

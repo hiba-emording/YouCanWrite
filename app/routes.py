@@ -158,7 +158,7 @@ def dashboard():
 @login_required
 def get_post(post_id):
     """Render the post page to view post with certain id"""
-    post = Post.query.options(joinedload(Post.user)).get_or_404(post_id)
+    post = Post.query.options(joinedload(Post.author)).get_or_404(post_id)
     return render_template('post.html', post=post)
 
 

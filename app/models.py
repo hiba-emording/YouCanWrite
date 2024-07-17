@@ -4,7 +4,7 @@ from datetime import datetime
 from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
 from sqlalchemy import Column, String, Integer, ForeignKey, Text, DateTime
-from sqlalchemy.orm import relationship, backref, joinedload
+from sqlalchemy.orm import relationship, backref
 from .extensions import db
 
 
@@ -18,8 +18,10 @@ class User(db.Model, UserMixin):
     bio = Column(Text, nullable=True)
     profile_picture = Column(String(1024), nullable=True)
     created_at = Column(DateTime, default=datetime.utcnow)
-    posts = relationship('Post', backref='author', lazy=True, overlaps="author,posts")
-    liked_posts = relationship('Like', backref='user', lazy=True, overlaps="liked_posts,user")
+
+    posts = relationship('Post', back_populates='author', lazy=True)
+    liked_posts = relationship('Like', back_populates='user', lazy=True)
+    comments = relationship('Comment', back_populates='user', lazy=True)
 
 
     def to_dict(self):
@@ -56,13 +58,14 @@ class Post(db.Model):
     """Post model to store post-related information"""
     id = Column(Integer, primary_key=True)
     user_id = Column(Integer, ForeignKey('user.id'), nullable=False)
-    user = relationship('User', backref=db.backref('user_posts', lazy=True), overlaps="author,posts")
     title = Column(String(120), nullable=False)
     image_url = Column(String(1024), nullable=True)
     content = Column(Text, nullable=False)
     created_at = Column(DateTime, default=datetime.utcnow)
-    comments = relationship('Comment', backref='post', lazy=True, cascade='all, delete-orphan')
-    likes = relationship('Like', backref='post', lazy=True, cascade='all, delete-orphan')
+
+    author = relationship('User', back_populates='posts')
+    comments = relationship('Comment', back_populates='post', lazy=True, cascade='all, delete-orphan')
+    likes = relationship('Like', back_populates='post', lazy=True, cascade='all, delete-orphan')
 
 
     def to_dict(self):
@@ -90,9 +93,11 @@ class Comment(db.Model):
     id = Column(Integer, primary_key=True)
     post_id = Column(Integer, ForeignKey('post.id', ondelete='CASCADE'), nullable=False)
     user_id = Column(Integer, ForeignKey('user.id'), nullable=False)
-    user = db.relationship('User', backref=db.backref('comments', lazy=True))
     content = Column(Text, nullable=False)
     created_at = Column(DateTime, default=datetime.utcnow)
+
+    user = relationship('User', back_populates='comments')
+    post = relationship('Post', back_populates='comments')
 
 
     def to_dict(self):
@@ -112,8 +117,10 @@ class Like(db.Model):
     id = Column(Integer, primary_key=True)
     post_id = Column(Integer, ForeignKey('post.id', ondelete='CASCADE'), nullable=False)
     user_id = Column(Integer, ForeignKey('user.id'), nullable=False)
-    liked_by = relationship('User', backref='likes', lazy=True, overlaps="liked_posts,user")
     created_at = Column(DateTime, default=datetime.utcnow)
+
+    user = relationship('User', back_populates='liked_posts')
+    post = relationship('Post', back_populates='likes')
 
 
     def to_dict(self):
@@ -159,4 +166,3 @@ class Tip(db.Model):
             'tip': self.tip,
             'created_at': self.created_at.isoformat()
         }
-    

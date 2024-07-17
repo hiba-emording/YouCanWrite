@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """init package"""
 from flask import Flask
-from .extensions import db, bcrypt, migrate, Session, login_manager, ckeditor
+from .extensions import db, bcrypt, migrate, Session, login_manager
 from .models import User
 from .scheduler import init_scheduler
 from flask_apscheduler import APScheduler
@@ -23,7 +23,6 @@ def create_app():
     bcrypt.init_app(app)
     migrate.init_app(app, db)
     Session.init_app(app)
-    ckeditor.init_app(app)
     
     
     @login_manager.user_loader

@@ -5,7 +5,7 @@ from flask_bcrypt import Bcrypt
 from flask_migrate import Migrate
 from flask_session import Session
 from flask_login import LoginManager
-from flask_ckeditor import CKEditor
+
 
 
 db = SQLAlchemy()
@@ -13,4 +13,4 @@ bcrypt = Bcrypt()
 migrate = Migrate()
 Session = Session()
 login_manager = LoginManager()
-ckeditor = CKEditor()
+
