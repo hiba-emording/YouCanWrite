@@ -4,22 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ post.title }} - YouCanWrite</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Julius+Sans+One&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='images/favicon-32x32.png') }}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='images/favicon-16x16.png') }}">
     {% extends "base.html" %}
     {% block title %}Post{% endblock %}
     {% block content %}
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='images/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='images/favicon-16x16.png') }}">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script>
-    <style>
-        .ql-editor p {
-            color: black !important;
-        };
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Lobster&family=Julius+Sans+One&family=Mirza:wght@400;700&family=Roboto:wght@300;400;700&family=Tajawal&family=Noto+Kufi+Arabic&family=Scheherazade&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/poststyle.css') }}">
 </head>
 <body class="bg-gray-100" style="display: flex; flex-direction: column; min-height: 100vh;">
     <div class="flex flex-col flex-grow">
@@ -43,8 +38,8 @@
     <main class="container mx-auto p-4 flex-grow">
         <div id="postDisplay" class="bg-white p-6 rounded-lg shadow-lg max-w-full">
             <img id="postImg" src="{{ post.image_url if post.image_url else url_for('static', filename='images/post_img.png') }}" alt="{{ post.title }}" class="w-full h-64 object-cover rounded mb-4" style="width: 1440px; height: 480px; object-fit: cover;">
-            <h2 class="text-3xl font-bold mb-2">{{ post.title }}</h2>
-            <p class="text-left text-gray-600 mb-4">Author: <a href="{{ url_for('api.view_user_profile', username=post.author.username) }}" id="postAuthorName" class="text-blue-500 hover:text-blue-600">{{ post.author.username }}</a></p>
+            <h2 class="text-3xl font-bold mb-2" style="font-family: 'Lobster', cursive; color: #4b0082; text-align: center;" >{{ post.title }}</h2>
+            <p class="text-left text-gray-600 mb-4" style="font-family: 'Julius Sans One', sans-serif; color: #000000;">Author: <a href="{{ url_for('api.view_user_profile', username=post.author.username) }}" id="postAuthorName" class="text-blue-500 hover:text-blue-600">{{ post.author.username }}</a></p>
             <div class="text-left text-lg text-black mb-4 post-container">{{ post.content | safe }}</div>
             <div class="flex justify-between items-center mb-4">
                 <div class="flex gap-2" data-post-id="{{ post.id }}">
@@ -58,7 +53,7 @@
                         <ul class="liked-users inline">
                             {% for like in post.likes %}
                                 <li class="inline">
-                                    <a href="{{ url_for('api.view_user_profile', username=like.user.username) }}" class="text-purple-900 hover:text-blue-600">{{ like.user.username }}</a>
+                                    <a href="{{ url_for('api.view_user_profile', username=like.user.username) }}" class="text-purple-900 hover:text-blue-600" style="font-family: 'Raleway', sans-serif;">{{ like.user.username }}</a>
                                     {% if not loop.last %}, {% endif %}
                                 </li>
                             {% endfor %}
@@ -67,13 +62,13 @@
                 </div>                     
                 {% if current_user.id == post.author.id %}
                 <div>
-                    <button class="bg-purple-500 text-white py-2 px-4 rounded hover:bg-purple-700 mr-2" onclick="toggleEdit(true)">Edit</button>
-                    <button class="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-700" onclick="deletePost('{{ post.id }}')">Delete</button>
+                    <button class="bg-purple-500 text-white py-2 px-4 rounded hover:bg-purple-700 mr-2" style="font-family: 'Raleway', sans-serif;" onclick="toggleEdit(true)">Edit</button>
+                    <button class="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-700" style="font-family: 'Raleway', sans-serif;" onclick="deletePost('{{ post.id }}')">Delete</button>
                 </div>
                 {% endif %}
             </div>
-            <h3 class="text-2xl font-bold mb-4">Comments</h3>
-            <div id="comments" class="mb-4">
+            <h3 class="text-2xl font-bold mb-4" style="font-family: 'Raleway', sans-serif;">Comments</h3>
+            <div id="comments" class="mb-4" style="font-family: 'Raleway', sans-serif;">
                 <ul>
                     {% for comment in post.comments %}
                     <li class="mb-4">
@@ -84,15 +79,15 @@
                                 <p class="text-xs text-gray-600 text-left">{{ comment.created_at }}</p>
                                 {% if current_user.id == comment.user.id %}
                                 <div class="flex items-center mt-2">
-                                    <button class="bg-purple-500 text-white py-1 px-3 rounded hover:bg-purple-700 mr-2" onclick="editComment('{{ comment.id }}')">Edit</button>
-                                    <button class="bg-red-500 text-white py-1 px-3 rounded hover:bg-red-700" onclick="deleteComment('{{ comment.id }}', '{{ post.id }}')">Delete</button>
+                                    <button class="bg-purple-500 text-white py-1 px-3 rounded hover:bg-purple-700 mr-2" style="font-family: 'Raleway', sans-serif;" onclick="editComment('{{ comment.id }}')">Edit</button>
+                                    <button class="bg-red-500 text-white py-1 px-3 rounded hover:bg-red-700" style="font-family: 'Raleway', sans-serif;" onclick="deleteComment('{{ comment.id }}', '{{ post.id }}')">Delete</button>
                                 </div>
                                 {% endif %}
                             </div>
                             <div id="commentEditForm-{{ comment.id }}" style="display: none;">
                                 <textarea id="commentEditInput-{{ comment.id }}" class="w-full p-2 border border-gray-300 rounded-lg" rows="2">{{ comment.content }}</textarea>
-                                <button class="bg-purple-500 text-white py-1 px-3 rounded hover:bg-purple-700 mr-2" onclick="updateComment('{{ comment.id }}')">Save</button>
-                                <button class="bg-gray-500 text-white py-1 px-3 rounded hover:bg-gray-700" onclick="toggleCommentEdit('{{ comment.id }}', false)">Cancel</button>
+                                <button class="bg-purple-500 text-white py-1 px-3 rounded hover:bg-purple-700 mr-2" style="font-family: 'Raleway', sans-serif;" onclick="updateComment('{{ comment.id }}')">Save</button>
+                                <button class="bg-gray-500 text-white py-1 px-3 rounded hover:bg-gray-700" style="font-family: 'Raleway', sans-serif;" onclick="toggleCommentEdit('{{ comment.id }}', false)">Cancel</button>
                             </div>
                         </div>
                     </li>
@@ -101,26 +96,26 @@
             </div>
             <div class="bg-gray-200 p-4 rounded-lg mb-4">
                 <textarea id="commentInput" class="w-full p-2 border border-gray-300 rounded-lg" rows="3" placeholder="Add a comment..."></textarea>
-                <button id="submitComment" class="bg-purple-500 text-white py-2 px-4 rounded hover:bg-purple-700 mt-2" onclick="submitComment('{{ post.id }}')">Submit</button>
+                <button id="submitComment" class="bg-purple-500 text-white py-2 px-4 rounded hover:bg-purple-700 mt-2" style="font-family: 'Raleway', sans-serif;"onclick="submitComment('{{ post.id }}')">Submit</button>
             </div>
         </div>
         <div id="postEditForm" class="container mx-auto mt-8" style="display: none;">
             <div class="p-4 bg-white rounded shadow">
-                <h1 class="text-3xl font-bold mb-4">Edit Post</h1>
+                <h1 class="text-3xl font-bold mb-4" style="font-family: 'Raleway', sans-serif; font-weight: 300; line-height: 1.6; color: #000000;">Edit Post</h1>
                 <form action="{{ url_for('api.update_post', post_id=post.id) }}" method="POST">
                     <div class="mb-4">
-                        <label for="title" class="block text-gray-700">Title</label>
+                        <label for="title" class="block text-gray-700" style="font-family: 'Raleway', sans-serif;">Title</label>
                         <input type="text" name="title" id="title" value="{{ post.title }}" class="w-full px-4 py-2 border rounded">
                     </div>
                     <div class="mb-4" id="content">{{ post.content | safe }}</div>
                     <input type="text" name="content" hidden />
                     <div class="mb-4">
-                        <label for="image_url" class="block text-gray-700">Post Image URL</label>
+                        <label for="image_url" class="block text-gray-700" style="font-family: 'Raleway', sans-serif;">Post Image URL</label>
                         <input type="text" name="image_url" id="image_url" value="{{ post.image_url if post.image_url else url_for('static', filename='images/post_img.png') }}" class="w-full px-4 py-2 border rounded" oninput="updatePostImage(this.value)">
                     </div>
                     <div class="flex justify-between">
-                        <button type="button" onclick="toggleEdit(false)" class="bg-gray-500 text-white px-4 py-2 rounded">Cancel</button>
-                        <button type="submit" class="bg-purple-500 text-white px-4 py-2 rounded">Save</button>
+                        <button type="button" onclick="toggleEdit(false)" class="bg-gray-500 text-white px-4 py-2 rounded" style="font-family: 'Raleway', sans-serif;">Cancel</button>
+                        <button type="submit" class="bg-purple-500 text-white px-4 py-2 rounded" style="font-family: 'Raleway', sans-serif;">Save</button>
                     </div>
                 </form>
             </div>
@@ -130,28 +125,34 @@
         &copy; 2024 YouCanWrite. All rights reserved.
     </footer>
     <script src="{{ url_for('static', filename='js/post.js') }}"></script>
-</body>
-<script>
-    // Initialize QuillJS editor
-    const quill = new Quill('#content', {
-        theme: 'snow',
-        modules: {
-            syntax: true,    // Include syntax module for code highlighting
-            toolbar: [
-                [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
-                ['bold', 'italic', 'underline', 'strike'],
-                [{ 'list': 'ordered'}, { 'list': 'bullet' }],
-                ['link', 'image'],
-                [{ 'align': [] },],
-                ['clean']
-            ]
-        }
-    });
-    quill.on('text-change', function() {
-        const content = document.querySelector('input[name="content"]');
-        content.value = quill.root.innerHTML;
-    });
-
-</script>
-{% endblock %}
-</html>
+    <script>
+        const Font = Quill.import('formats/font');
+        Font.whitelist = ['mirza', 'roboto', 'Lobster', 'Julius Sans One', 'Tajawal', 'Noto Kufi Arabic', 'Scheherazade'];
+        Quill.register(Font, true);
+    
+        const toolbarOptions = [
+        [{ 'font': Font.whitelist }],
+        [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+        ['bold', 'italic', 'underline', 'strike'],
+        ['blockquote'],
+        [{ 'color': [] }, { 'background': [] }],
+        [{ 'align': [] },],
+        ['clean']
+    ];
+    
+        // Initialize QuillJS editor
+        const quill = new Quill('#content', {
+            theme: 'snow',
+            modules: {
+                syntax: true, 
+                toolbar: toolbarOptions,
+            }
+        });
+        quill.on('text-change', function() {
+            const content = document.querySelector('input[name="content"]');
+            content.value = quill.root.innerHTML;
+        });
+    </script>
+    </body>
+    {% endblock %}
+    </html>    

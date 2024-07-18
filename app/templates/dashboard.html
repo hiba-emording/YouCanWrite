@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Writing Zone - YouCanWrite</title>
+    {% extends "base.html" %}
+    {% block title %}Wriring Post{% endblock %}
+    {% block content %}
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Julius+Sans+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='images/favicon-32x32.png') }}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='images/favicon-16x16.png') }}">
 </head>
-{% extends "base.html" %}
-{% block title %}Wriring Post{% endblock %}
-{% block content %}
 <body class="bg-gray-100" style="display: flex; flex-direction: column; min-height: 100vh;">
     <div class="flex flex-col flex-grow">
         <nav class="shadow-lg py-1 px-4">

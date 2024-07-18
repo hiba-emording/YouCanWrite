@@ -7,6 +7,7 @@ Welcome to YouCanWrite, a dynamic platform designed to inspire and support write
 At its core, YouCanWrite aims to address common challenges faced by writers, such as writer's block and lack of feedback. By providing a supportive community and a variety of writing prompts, YouCanWrite ensures that writers always have a source of inspiration and a space to share their work.
 
 **This project combines a robust backend with a user-friendly frontend to deliver a seamless writing experience:**
+
 Backend: The application is powered by Flask, a lightweight WSGI web application framework in Python. Flask is used to handle the application's routing, request processing, and integration with the database.
 
 Database: We use PostgreSQL for robust and scalable data storage. This relational database system is known for its reliability and performance.

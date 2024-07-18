@@ -1,0 +1,190 @@
+/* styles.css */
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Raleway:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Julius+Sans+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700|Mirza:wght@400;700|Roboto:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tajawal&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Scheherazade&display=swap');
+
+/* Body and font styles */
+body {
+    background-color: #ffffff;
+}
+
+/* Navigation styles */
+nav {
+    background-color: #01012A;
+    color: #E0E4F8;
+}
+
+nav a {
+    color: #ca9aec;
+}
+
+nav a:hover {
+    color: #8B5CF6;
+}
+
+nav .menu {
+    font-family: 'Julius Sans One', sans-serif;
+}
+
+nav .flex-col h1 {
+    font-family: 'Lobster', cursive;
+    color: #ca9aec;
+    margin-top: 2rem;
+}
+
+nav .flex-col p {
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 0.75rem;
+}
+
+
+.typing-animation {
+    font-family: 'Raleway', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #12024e;
+    text-align: center;
+}
+
+/* Adjust the parent container to prevent wrapping */
+.bg-gray-100 {
+    flex-wrap: nowrap;
+    overflow-x: auto; /* Adds horizontal scrolling if the content overflows */
+}
+
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Footer styles */
+footer {
+    background-color: #01012A; /* Dark purple footer background */
+    color: #ca9aec;
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    padding: 1rem 0;
+}
+
+.postImageContainer {
+    width: 100%;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    display: flex;
+    justify-content: center;
+}
+
+
+.flash-messages {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    width: 80%;
+    max-width: 500px;
+}
+
+.flash-message {
+    position: relative;
+    padding: 20px;
+    margin: 10px 0;
+    border-radius: 5px;
+    text-align: center;
+    color: white;
+    background-color: #333;
+}
+
+.flash-message.success {
+    background-color: green;
+}
+
+.flash-message.error {
+    background-color: red;
+}
+
+.flash-message.info {
+    background-color: blue;
+}
+
+.flash-message.danger {
+    background-color: darkred;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.close-button:hover {
+    color: lightgray;
+}
+
+
+/* Set default font-family */
+#content {
+    font-family: 'Aref Ruqaa';
+    font-size: 18px;
+    height: 375px;
+  }
+  
+  /* Set dropdown font-families */
+#toolbar-container .ql-font span[data-label='Aref Ruqaa']::before {
+    font-family: 'Aref Ruqaa';
+}
+#toolbar .ql-font .ql-font span[data-label='Mirza']::before {
+    font-family: 'Mirza';
+}
+#toolbar-container .ql-font span[data-label='Roboto']::before {
+    font-family: 'Roboto';
+}
+#toolbar-container .ql-font span[data-label='Lobster']::before {
+    font-family: 'Lobster';
+}
+#toolbar-container .ql-font span[data-label='Julius Sans One']::before {
+    font-family: 'Julius Sans One';
+}
+#toolbar-containerr .ql-font span[data-label='Tajawal']::before {
+    font-family: 'Tajawal';
+}
+#toolbar-container .ql-font span[data-label='Noto Kufi Arabic']::before {
+    font-family: 'Noto Kufi Arabic';
+}
+#toolbar-container .ql-font span[data-label='Scheherazade']::before {
+    font-family: 'Scheherazade';
+}
+
+/* Set content font-families */
+.ql-font-mirza {
+    font-family: 'Mirza';
+}
+.ql-font-roboto {
+    font-family: 'Roboto';
+}
+.ql-font-lobster {
+    font-family: 'Lobster';
+}
+.ql-font-julius-sans-one {
+    font-family: 'Julius Sans One';
+}
+.ql-font-tajawal {
+    font-family: 'Tajawal';
+}
+.ql-font-noto-kufi-arabic {
+    font-family: 'Noto Kufi Arabic';
+}
+.ql-font-scheherazade {
+    font-family: 'Scheherazade';
+}
