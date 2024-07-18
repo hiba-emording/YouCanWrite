@@ -13,7 +13,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Lobster&family=Julius+Sans+One&family=Mirza:wght@400;700&family=Roboto:wght@300;400;700&family=Tajawal&family=Noto+Kufi+Arabic&family=Scheherazade&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/poststyle.css') }}">
 </head>
 <body class="bg-gray-100" style="display: flex; flex-direction: column; min-height: 100vh;">
@@ -59,19 +58,25 @@
     </footer>
     <script src="{{ url_for('static', filename='js/animation.js') }}"></script>
 <script>
-    const Font = Quill.import('formats/font');
-    Font.whitelist = ['mirza', 'roboto', 'Lobster', 'Julius Sans One', 'Tajawal', 'Noto Kufi Arabic', 'Scheherazade', false];
-    Quill.register(Font, true);
+        const Font = Quill.import('formats/font');
+        const Align = Quill.import('formats/align');
+        const Size = Quill.import('formats/size');
 
-    const toolbarOptions = [
-    [{ 'font': Font.whitelist }],
-    [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
-    ['bold', 'italic', 'underline', 'strike'],
-    ['blockquote'],
-    [{ 'color': [] }, { 'background': [] }],
-    [{ 'align': [] },],
-    ['clean']
-  ];
+        Font.whitelist = ['mirza', 'roboto', 'raleway', 'tajawal', 'noto-kufi-arabic', 'scheherazade'];
+        Size.whitelist = ['small', 'normal', 'large', 'huge'];
+
+        Quill.register(Font, true);
+        Quill.register(Align, true);
+        Quill.register(Size, true);
+
+        const toolbarOptions = [
+        [{ 'font': Font.whitelist }],
+        [{ 'size': Size.whitelist }],
+        ['bold', 'italic', 'underline', 'strike'],
+        [{ 'color': [] }, { 'background': [] }],
+        [{ 'align': [] },],
+        ['clean']
+    ];
 
     // Initialize QuillJS editor
     const quill = new Quill('#content', {

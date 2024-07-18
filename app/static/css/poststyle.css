@@ -1,10 +1,16 @@
 /* styles.css */
 @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Raleway:wght@300&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Julius+Sans+One&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700|Mirza:wght@400;700|Roboto:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap');
+
+/* English Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mirza&display=swap');
+
+/* Arabic Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Scheherazade&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Tajawal&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Scheherazade&display=swap');
 
 /* Body and font styles */
 body {
@@ -55,11 +61,6 @@ nav .flex-col p {
     overflow-x: auto; /* Adds horizontal scrolling if the content overflows */
 }
 
-.main-content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-}
 
 /* Footer styles */
 footer {
@@ -133,58 +134,65 @@ footer {
 }
 
 
-/* Set default font-family */
-#content {
-    font-family: 'Aref Ruqaa';
-    font-size: 18px;
-    height: 375px;
-  }
-  
-  /* Set dropdown font-families */
-#toolbar-container .ql-font span[data-label='Aref Ruqaa']::before {
-    font-family: 'Aref Ruqaa';
-}
-#toolbar .ql-font .ql-font span[data-label='Mirza']::before {
-    font-family: 'Mirza';
-}
-#toolbar-container .ql-font span[data-label='Roboto']::before {
-    font-family: 'Roboto';
-}
-#toolbar-container .ql-font span[data-label='Lobster']::before {
-    font-family: 'Lobster';
-}
-#toolbar-container .ql-font span[data-label='Julius Sans One']::before {
-    font-family: 'Julius Sans One';
-}
-#toolbar-containerr .ql-font span[data-label='Tajawal']::before {
-    font-family: 'Tajawal';
-}
-#toolbar-container .ql-font span[data-label='Noto Kufi Arabic']::before {
-    font-family: 'Noto Kufi Arabic';
-}
-#toolbar-container .ql-font span[data-label='Scheherazade']::before {
-    font-family: 'Scheherazade';
+/* QuillJS custom fonts */
+.ql-font-scheherazade {
+    font-family: 'Scheherazade', serif; /* Arabic font for QuillJS */
 }
 
-/* Set content font-families */
-.ql-font-mirza {
-    font-family: 'Mirza';
-}
-.ql-font-roboto {
-    font-family: 'Roboto';
-}
-.ql-font-lobster {
-    font-family: 'Lobster';
-}
-.ql-font-julius-sans-one {
-    font-family: 'Julius Sans One';
-}
 .ql-font-tajawal {
-    font-family: 'Tajawal';
+    font-family: 'Tajawal', sans-serif; /* Arabic font for QuillJS */
 }
+
 .ql-font-noto-kufi-arabic {
-    font-family: 'Noto Kufi Arabic';
+    font-family: 'Noto Kufi Arabic', sans-serif; /* Arabic font for QuillJS */
 }
-.ql-font-scheherazade {
-    font-family: 'Scheherazade';
+
+/* English custom fonts for QuillJS */
+.ql-font-roboto {
+    font-family: 'Roboto', sans-serif; /* English font for QuillJS */
 }
+
+.ql-font-raleway {
+    font-family: 'Raleway', sans-serif; /* English font for QuillJS */
+}
+
+.ql-font-mirza {
+    font-family: 'Mirza', cursive; /* English font for QuillJS */
+}
+
+/* Left align */
+.ql-align-left {
+    text-align: left !important; /* Use !important to override Quill's default styles */
+}
+
+/* Center align */
+.ql-align-center {
+    text-align: center !important;
+}
+
+/* Right align */
+.ql-align-right {
+    text-align: right !important;
+}
+
+/* Justify align */
+.ql-align-justify {
+    text-align: justify !important;
+}
+
+.ql-size-small {
+    font-size: 14px !important;
+}
+
+.ql-size-normal {
+    font-size: 16px !important;
+}
+
+.ql-size-large {
+    font-size: 20px !important;
+}
+
+.ql-size-huge {
+    font-size: 28px !important;
+}
+
