@@ -6,7 +6,7 @@ import os
 
 class Config:
     """Base configuration class with default settings"""
-    SQLALCHEMY_DATABASE_URI = 'postgresql://admin:itsme@localhost/youcanwritedb'
+    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     SCHEDULER_API_ENABLED = True
     SCHEDULER_API_PREFIX = '/scheduler'
